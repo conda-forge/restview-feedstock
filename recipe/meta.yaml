@@ -24,7 +24,7 @@ requirements:
     - docutils
     - pygments
     - python >=3.6
-    - readme_renderer
+    - readme_renderer <37
 
 test:
   imports:
