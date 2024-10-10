@@ -1,5 +1,5 @@
 {% set name = "restview" %}
-{% set version = "3.0.1" %}
+{% set version = "3.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8c1a171c159d46d15d5569f77021828883a121d6f9baf758d641fc1e54b05ae5
+  sha256: 8b4d75a0bed76b67b456ef7011f4eb6c98a556c9f837642df2202c7312fccc1a
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - setuptools
   run:
     - docutils
     - pygments
