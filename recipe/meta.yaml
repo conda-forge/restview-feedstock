@@ -6,28 +6,30 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 8b4d75a0bed76b67b456ef7011f4eb6c98a556c9f837642df2202c7312fccc1a
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - restview = restview.restviewhttp:main
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
     - docutils
     - pygments
-    - python >=3.6
+    - python >={{ python_min }}
     - readme_renderer <37
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - restview
   commands:
